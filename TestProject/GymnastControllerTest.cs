@@ -3,6 +3,7 @@ using GymWebApp.Controllers;
 using GymWebApp.Interfaces;
 using GymWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Moq;
 using System;
@@ -40,16 +41,16 @@ namespace TestProject
             //gymnastsViewModelMock = new Mock<IGymnastViewModel>();
 
             addGymnast = new IAddGymnast { Name = "Sunni", Age = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)1, Nationality = "USA", PictureURL = "" };
-            updateGymnast = new IUpdateGymnast { Name = "Sunni", Age = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)3, Nationality = "USA", PictureURL = "" }}
+            updateGymnast = new IUpdateGymnast { Name = "Sunni", Age = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)3, Nationality = "USA", PictureURL = "" };
             
-        ILogger = new Mock<ILogger<GymnastsController>>();
+        _logger = new Mock<ILogger<GymnastsController>>();
         var judgesMock = new Mock<IJudge>();
-        var judgesMock = new List<IJudge>() { JudgesMock.Object };
+        var judgesMock = new List<IJudge>() { judgesMock.Object };
         var judgesMock = new List<IActionResult>();
 
         mockRepo = new Mock<ILogger<GymnastsController>>();
-        var allGymnasts = GetGymnast();
-        GymnastsController = new GymnastsController(_logger.Object, mockRepo.Object);
+        var allGymnasts = GetGymnats();
+        gymnastController = new GymnastsController(_logger.Object, mockRepo.Object);
              
         
         
@@ -65,22 +66,23 @@ namespace TestProject
     {
         return new List<Judges>()
         {
-            new Judges { ID =1 , Gymnast= GetGymnasts().ToList()[0]},
-            new Judges { ID = 2, Gymnast= GetGymnasts().ToList()[1]}
+            new Judges { ID =1 , },
+            new Judges { ID = 2, }
         };
     }
-    private Judges GetJudges()
+    private Judges GetJudge()
     {
-        return GetJudges().ToList()[0];
+        return GetJudge();
     }
-    private IEnumberable<Gymnast> GetGymnats()
-    {
-        var gymnats = new List<Gymnast>
+        private IEnumerable<Gymnast> GetGymnats()
         {
-            new Gymnast = new List<Gymnast> {
-                new Gymnast()(Name = "Sunni", Age = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)1, Nationality = "USA", PictureURL = ""),
+            var gymnats = new List<Gymnast>
+            {
+                new Gymnast = new List<Gymnast> {
+                new Gymnast()(Name = "Sunni", Page = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)1, Nationality = "USA", PictureURL = ""),
                 new Gymnast()(Name = "Sunni", Age = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)3, Nationality = "USA", PictureURL = "")
-            };
+             };
+        
         return gymnasts;
         }
     }
