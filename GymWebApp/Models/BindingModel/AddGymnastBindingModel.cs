@@ -12,6 +12,6 @@ namespace GymWebApp.Models.BindingModel
         public Gymnast.AgeCategory AgeSection { get; set; }
         public string Nationality { get; set; }
         public Gymnast.Piece Apparatus { get; set; }
-        public Gymnast.AgeCategory AgeCategory { get; internal set; }
+       
     }
 }

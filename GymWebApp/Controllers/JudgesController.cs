@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using GymWebApp.Interfaces;
 
 namespace GymWebApp.Controllers
 {
@@ -12,22 +14,24 @@ namespace GymWebApp.Controllers
     public class JudgeController : Controller
     {
 
-        private readonly ApplicationDbContext dbContext;
-        public JudgeController(ApplicationDbContext applicationDbContext)
+        private ILogger<JudgeController> _logger;
+        private IRepositoryWrapper repository;
+        public JudgeController(ILogger<JudgeController> logger, IRepositoryWrapper repositoryWrapper)
         {
-            dbContext = applicationDbContext;
+            _logger = logger;
+            repository = repositoryWrapper;
         }
         //READ
         [Route("")]
         public IActionResult Index()
         {
-            var alljudges = dbContext.Judges.ToList();
+            var alljudges = repository.Judges.FindAll();
             return View(alljudges);
         }
         [Route("details/{id:int}")]
         public IActionResult Details(int id)
         {
-            var judgesById = dbContext.Judges.FirstOrDefault(c => c.ID == id);
+            var judgesById = repository.Judges.FindByCondition(c => c.ID == id).FirstOrDefault();
             return View(judgesById);
         }
 
@@ -35,29 +39,28 @@ namespace GymWebApp.Controllers
         [Route("update/{id:int}")]
         public IActionResult Update(int id)
         {
-            var judgesById = dbContext.Judges.FirstOrDefault(c => c.ID == id);
+            var judgesById = repository.Judges.FindByCondition(c => c.ID == id).FirstOrDefault();
             return View(judgesById);
         }
         [HttpPost]
         [Route("update/{id:int}")]
         public IActionResult Update(Judges judge, int id)
         {
-            var kittenToUpdate = dbContext.Judges.FirstOrDefault(c => c.ID == id);
-            kittenToUpdate.Name = judge.Name;
-            kittenToUpdate.Age = judge.Age;
-            kittenToUpdate.PictureURL = judge.PictureURL;
-            kittenToUpdate.AgeSections = judge.AgeSections;
-            kittenToUpdate.Apparatuss = judge.Apparatuss;
-            dbContext.SaveChanges();
+            var judgeToUpdate = repository.Judges.FindByCondition(c => c.ID == id).FirstOrDefault();
+            judgeToUpdate.Name = judge.Name;
+            judgeToUpdate.PictureURL = judge.PictureURL;
+            judgeToUpdate.AgeSections = judge.AgeSections;
+            judgeToUpdate.Apparatuss = judge.Apparatuss;
+            repository.Save();
             return RedirectToAction("Index");
         }
         //DELETE
         [Route("delete/{id:int}")]
         public IActionResult Delete(int id)
         {
-            var judgeToDelete = dbContext.Judges.FirstOrDefault(c => c.ID == id);
-            dbContext.Judges.Remove(judgeToDelete);
-            dbContext.SaveChanges();
+            var judgeToDelete = repository.Judges.FindByCondition(c => c.ID == id).FirstOrDefault();
+            repository.Judges.Delete(judgeToDelete);
+            repository.Save();
             return RedirectToAction("Index");
         }
     }

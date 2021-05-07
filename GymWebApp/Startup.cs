@@ -1,4 +1,6 @@
 using GymWebApp.Data;
+using GymWebApp.Interfaces;
+using GymWebApp.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,7 @@ namespace GymWebApp
         {
             services.AddRouting(r => r.LowercaseUrls = true);
             var myConnectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(myConnectionString, ServerVersion.AutoDetect(myConnectionString)));
             services.AddControllersWithViews();
         }
