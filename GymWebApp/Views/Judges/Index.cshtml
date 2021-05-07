@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GymWebApp.Models.Judges>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PictureURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeSections)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apparatuss)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.PictureURL" style="height:128px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgeSections)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apparatuss)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Update", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    @*@Html.ActionLink("View Cat", "Details", "Cats", new { id = item.Cat.ID })*@
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,2 @@
+This application allows you to add gymnasts and the appartus they will compete on
+allows judges to view the gymnasts and appartus they are assigned to

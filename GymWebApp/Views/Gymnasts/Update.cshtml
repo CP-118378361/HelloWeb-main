@@ -1,0 +1,67 @@
+﻿@model GymWebApp.Models.Gymnast
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update Details for @Model.Name</h1>
+
+<p>
+    Created on @Model.CreatedAt.ToShortDateString()
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PictureURL" class="control-label"></label>
+                <input asp-for="PictureURL" class="form-control" />
+                <span asp-validation-for="PictureURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgeSection" class="control-label"></label>
+                <select asp-for="AgeSection" class="form-control">
+                    <option value="1">Junior</option>
+                    <option value="2">Senior</option>
+                </select>
+                <span asp-validation-for="AgeSection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nationality" class="control-label"></label>
+                <input asp-for="Nationality" class="form-control" />
+                <span asp-validation-for="Nationality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apparatus" class="control-label"></label>
+                <select asp-for="Apparatus" class="form-control">
+                    <option value="1">Bars</option>
+                    <option value="2">Beam</option>
+                    <option value="3">Floor</option>
+                    <option value="4">Valut</option>
+                </select>
+                <span asp-validation-for="Apparatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
