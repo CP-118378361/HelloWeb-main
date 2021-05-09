@@ -1,10 +1,10 @@
 README
 GymWebApp
-Expectation
-The main expectatuion of this project was to provide a CRUD application with supporting documentation, testing and utilisation of all revelant tools explored in the past few weeks. I had to ensure my application allowed a user to create, read(view), update and delete.
+Expectation of the project
+The main expectation of this project was to provide a CRUD application with supporting documentation, testing and utilisation of all revelant tools explored in the past few weeks. I had to ensure my application allowed a user to create, read(view), update and delete.
 I have included the following 
 1.A trello board
-2.A relation database, consisting of four tables
+2.A relation database, consisting of two tables
 3.Documentation of the design phase, architecture and risk assessment matrix.
 4.A C# based functional application allowing for CRUD functions
 
@@ -57,4 +57,8 @@ Testing
 Known Issues
 -Testing isn't complete
 -Age Section and Apparatus show up as 0 until they're edited
+-Add judges doesn't save 
+
+Reflection 
+
 
