@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Moq;
+using Nest;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -78,9 +79,9 @@ namespace TestProject
         {
             var gymnats = new List<Gymnast>
             {
-                new Gymnast = new List<Gymnast> {
-                new Gymnast()(Name = "Sunni", Page = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)1, Nationality = "USA", PictureURL = ""),
-                new Gymnast()(Name = "Sunni", Age = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)3, Nationality = "USA", PictureURL = "")
+              //  new Gymnast = new List<Gymnast> {
+               // new Gymnast()(Name = "Sunni", Page = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)1, Nationality = "USA", PictureURL = ""),
+               // new Gymnast()(Name = "Sunni", Age = 17, AgeSection = (Gymnast.AgeCategory)1, Apparatus = (Gymnast.Piece)3, Nationality = "USA", PictureURL = "")
              };
         
         return gymnasts;

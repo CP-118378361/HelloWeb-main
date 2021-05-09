@@ -124,7 +124,7 @@ namespace GymWebApp.Controllers
             var judgesToCreate = new Judges
             {
                 Name = bindingModel.Name,
-                Age = bindingModel.Age,
+                //Age = bindingModel.Age,
                 AgeSections = bindingModel.AgeSections,
                // Gymnast = dbContext.Gymnasts.FirstOrDefault(c => c.ID == gymnastID),
                 Gymnast = repository.Gymnasts.FindByCondition(c => c.ID == gymnastID).FirstOrDefault(),
