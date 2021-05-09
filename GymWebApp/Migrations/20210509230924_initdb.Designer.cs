@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210507082625_initDb")]
-    partial class initDb
+    [Migration("20210509230924_initdb")]
+    partial class initdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,10 +28,10 @@ namespace GymWebApp.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int>("AgeSections")
+                    b.Property<int>("AgeSection")
                         .HasColumnType("int");
 
-                    b.Property<int>("Apparatuss")
+                    b.Property<int>("Apparatus")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
@@ -55,9 +55,6 @@ namespace GymWebApp.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Age")
                         .HasColumnType("int");
 
                     b.Property<int>("AgeSections")

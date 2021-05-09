@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GymWebApp.Migrations
 {
-    public partial class initDb : Migration
+    public partial class initdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,10 +16,10 @@ namespace GymWebApp.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     Age = table.Column<int>(type: "int", nullable: false),
-                    AgeSections = table.Column<int>(type: "int", nullable: false),
+                    AgeSection = table.Column<int>(type: "int", nullable: false),
                     Nationality = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     PictureURL = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    Apparatuss = table.Column<int>(type: "int", nullable: false),
+                    Apparatus = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
@@ -34,7 +34,6 @@ namespace GymWebApp.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    Age = table.Column<int>(type: "int", nullable: false),
                     PictureURL = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     AgeSections = table.Column<int>(type: "int", nullable: false),
                     Apparatuss = table.Column<int>(type: "int", nullable: false),
