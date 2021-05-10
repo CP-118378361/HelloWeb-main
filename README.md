@@ -62,7 +62,8 @@ The Use case demonstrates how the CRUD application works and how Judge interacts
 
 ### Project Tracking
 https://trello.com/b/J5Voo0E4/design-sprint
-![Screenshot (7)](https://user-images.githubusercontent.com/46994774/117307383-6fcdd100-ae78-11eb-880a-2795ef140106.png)
+![Screenshot (17)](https://user-images.githubusercontent.com/46994774/117624719-2083eb00-b16d-11eb-950b-437af676d601.png)
+
 
 My Trello board contains the following
 1. Pre-Sprint prep- This involves outline the necessary steps taken before the project began.
@@ -80,11 +81,13 @@ My Trello board contains the following
 -
 
 ## Known Issues
+
 -Testing isn't complete
 -Age Section and Apparatus show up as 0 until they're edited
 -Add judges doesn't save 
 
 ## Reflection 
+
 There is defintely improvements I would like to make
 - Ensure that a different judge has to be assigned to each appartus for a gymnast
 - Testing is something I need to learn to do properly and hopefully become confident in doing it.
